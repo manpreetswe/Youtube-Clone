@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Clone</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Sidebar Menu -->
+<div class="sidebar" id="sidebarMenu">
+  <div class="sidebar-header">
+    <div class="sidebar-toggle" id="sidebarToggle">⬅</div>
+  </div>
+
+  <div class="menu-item active" data-section="home">🏠 Home</div>
+  <div class="menu-item" data-section="shorts">🎬 Shorts</div>
+</div>
+
+<!-- Main Container -->
+<div id="mainContainer">
+
+  <!-- Top Bar -->
+  <div class="topbar">
+    <div class="menu-info">
+      <button id="backBtn" class="back-btn">←</button>
+      <div class="menu-btn" id="menuBtn">☰</div>
+      <div><img src="ytlogo.png" alt="ytlogo" class="defaultlogo"></div>
+      <div><img src="ytslogo.png" alt="ytlogo" class="shortslogo"></div>
+      <span class="title">YOUTUBE <sup class="sup">Clone</sup></span>
+    </div>
+
+    <div class="searchbar">
+      <input type="text" id="searchInput" placeholder="Search...">
+      <button id="searchBtn">Search</button>
+      <button id="micBtn">🎤</button>
+    </div>
+
+    <div class="actions">
+      <button id="themeToggle">🌙</button>
+    </div>
+  </div>
+
+  <!-- Chips & Video Grid -->
+  <div class="container">
+    <div class="chips">
+      <button class="chip active" data-q="trending">All</button>
+      <button class="chip" data-q="music">Music</button>
+      <button class="chip" data-q="gaming">Gaming</button>
+      <button class="chip" data-q="sports">Sports</button>
+      <button class="chip" data-q="news">News</button>
+      <button class="chip" data-q="coding">Coding</button>
+      <button class="chip" data-q="movies">Movies</button>
+      <button class="chip" data-q="travel">Travel</button>
+      <button class="chip" data-q="food">Food</button>
+      <button class="chip" data-q="technology">Technology</button>
+      <button class="chip" data-q="fashion">Fashion</button>
+      <button class="chip" data-q="education">Education</button>
+      <button class="chip" data-q="science">Science</button>
+      <button class="chip" data-q="health">Health</button>
+      <button class="chip" data-q="finance">Finance</button>
+      <button class="chip" data-q="history">History</button>
+      <button class="chip" data-q="art">Art</button>
+      <button class="chip" data-q="comedy">Comedy</button>
+      <button class="chip" data-q="podcasts">Podcasts</button>
+      <button class="chip" data-q="documentary">Documentary</button>
+      <button class="chip" data-q="live">Live</button>
+    </div>
+
+    <!-- Video Card Template (hidden) -->
+    <template id="videoCardTpl">
+      <div class="video-card">
+        <div class="thumbnail">
+          <img src="" alt="">
+          <span class="duration">0:00</span>
+        </div>
+        <div class="video-info">
+          <div class="channel-logo">
+            <img src="" alt="">
+          </div>
+          <div class="meta">
+            <h3 class="title">Title</h3>
+            <p class="channel-name">Channel</p>
+            <p class="stats">0 views • 0 ago</p>
+          </div>
+          <div class="menu">⋮</div>
+        </div>
+      </div>
+    </template>
+
+    <!-- 🎬 VIDEO GRID -->
+    <div id="videoGrid" class="video-grid"></div>
+  </div>
+
+  <!-- Video Page -->
+  <div class="video-page" style="display:none;">
+    <div class="player-left">
+      <iframe id="videoPlayer" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <div class="channel-info">
+        <div class="channel-left">
+          <img src="" alt="Channel Logo" class="channel-logo" id="channelLogo">
+          <div class="channel-text">
+            <h4 id="channelName">Channel Name</h4>
+            <p id="channelSubs">0 subscribers</p>
+          </div>
+        </div>
+        <button class="subscribe-btn" id="subscribeBtn">Subscribe</button>
+      </div>
+
+      <div class="action-buttons">
+        <button id="likeBtn">👍 Like</button>
+        <button id="dislikeBtn">👎 Dislike</button>
+        <button id="shareBtn">🔗 Share</button>
+        <button id="saveBtn">💾 Save</button>
+      </div>
+
+      <div class="video-meta">
+        <h3 id="videoTitle"></h3>
+        <p id="videoDesc"></p>
+      </div>
+    </div>
+
+    <div class="player-right" id="sidebarVideos"></div>
+  </div>
+
+  <!-- Shorts Section -->
+  <div class="shorts-container" style="display:none;"></div>
+
+  <!-- Spinner -->
+  <div id="loader"><div class="spinner"></div></div>
+
+  <footer class="foot"><p>YouTube Clone</p></footer>
+</div> <!-- End Main Container -->
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
