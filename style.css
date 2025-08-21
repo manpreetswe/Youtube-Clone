@@ -1,362 +1,652 @@
 /* ===== Reset ===== */
-* { margin: 0; 
-    padding: 0;  
-    box-sizing: border-box;
- }
-body { font-family: 'Inter', sans-serif;
-     background: #f9f9f9; color: #222;
-      transition: 0.3s; }
-body.dark { background: #181818; color: #eee; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f9f9f9;
+  color: #222;
+  transition: 0.3s;
+}
+body.dark {
+  background: #181818;
+  color: #eee;
+}
 
 /* ===== Sidebar ===== */
-.sidebar { width: 220px;
-     position: fixed; 
-     top: 0; left: -220px;
-      height: 100%; background: #fff; padding-top: 60px; transition: 0.3s; box-shadow: 2px 0 5px rgba(0,0,0,0.2); z-index: 200; }
-.sidebar.active { left: 0; }
-.sidebar .menu-item { padding: 12px 20px; cursor: pointer; font-weight: 600; transition: 0.3s; }
-.sidebar .menu-item.active, .sidebar .menu-item:hover { background: #eee; }
-.sidebar-toggle { position: absolute; top: 10px; right: -25px; cursor: pointer; background: #f1f1f1; padding: 5px; border-radius: 50%; font-size: 14px; transition: 0.3s; display: none; }
-.sidebar-toggle:hover { background: #ddd; }
-/* ===== Sidebar Video Cards ===== */
-#sidebarVideos { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 10px; 
-    padding: 10px; 
-    overflow-y: auto;
+.sidebar {
+  width: 220px;
+  position: fixed;
+  top: 0;
+  left: -220px;
+  height: 100%;
+  background: #fff;
+  padding-top: 60px;
+  transition: 0.3s;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+  z-index: 200;
+}
+.sidebar.active {
+  left: 0;
+}
+.sidebar .menu-item {
+  padding: 12px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.sidebar .menu-item.active,
+.sidebar .menu-item:hover {
+  background: #eee;
+}
+.sidebar-toggle {
+  position: absolute;
+  top: 10px;
+  right: -25px;
+  cursor: pointer;
+  background: #f1f1f1;
+  padding: 5px;
+  border-radius: 50%;
+  font-size: 14px;
+  transition: 0.3s;
+  display: none;
+  z-index: 300;
+}
+.sidebar-toggle:hover {
+  background: #ddd;
 }
 
-       
 /* ===== Sidebar Video Cards ===== */
+#sidebarVideos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  overflow-y: auto;
+}
 .player-right {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    overflow-y: auto;
-    max-height: 500px;
-    padding-right: 5px; /* for scrollbar */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  max-height: 500px;
+  padding-right: 5px; /* for scrollbar */
 }
-
 .sidebar-video-card {
-    display: flex;
-    gap: 10px;
-    cursor: pointer;
-    transition: 0.2s;
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+  transition: 0.2s;
 }
-
 .sidebar-video-card img {
-    width: 140px;       /* bigger thumbnail */
-    height: 80px;
-    object-fit: cover;
-    border-radius: 6px;
+  width: 140px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
 }
-
 .sidebar-video-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-width: calc(100% - 150px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: calc(100% - 150px);
 }
-
 .sidebar-video-info h4 {
-    font-size: 14px;
-    font-weight: 600;
-    margin: 0;
-    line-height: 1.2;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
-
 .sidebar-video-info p {
-    font-size: 12px;
-    color: gray;
-    margin-top: 2px;
+  font-size: 12px;
+  color: gray;
+  margin-top: 2px;
 }
-
 .player-right::-webkit-scrollbar {
-    width: 8px;
+  width: 8px;
 }
-
 .player-right::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 4px;
+  background: #888;
+  border-radius: 4px;
 }
-
 body.dark .player-right::-webkit-scrollbar-thumb {
-    background: #555;
+  background: #555;
 }
-
 
 /* ===== Top Bar ===== */
-.topbar { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    padding: 10px 20px; 
-    background: #202020; 
-    color: white; 
-    position: sticky; 
-    top: 0; 
-    z-index: 100; 
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #202020;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  flex-wrap: wrap;
 }
-/* Back button in topbar (small, left corner) */
 .back-btn {
-  display: none;            /* hidden by default, JS shows it */
+  display: none; /* hidden by default */
   font-size: 18px;
-  cursor: pointer;
   margin-left: 6px;
   margin-right: 6px;
   background: transparent;
   border: none;
+  cursor: pointer;
   color: inherit;
   padding: 4px 6px;
   user-select: none;
+  transition: background 0.2s;
 }
-
-/* if you want a visible "class" toggling style, keep this (optional) */
 .back-btn.show {
   display: inline-block;
 }
-
-/* small visual hover */
 .back-btn:hover {
-  background: rgba(0,0,0,0.06);
+  background: rgba(0,0,0,0.1);
   border-radius: 6px;
 }
-
-/* dark mode tweak */
 body.dark .back-btn:hover {
   background: rgba(255,255,255,0.04);
 }
 
+.menu-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.menu-btn {
+  cursor: pointer;
+  font-size: 20px;
+}
+.defaultlogo {
+  height: 32px;
+  display: inline-block; /* default visible */
+  border-radius: 6px;
+}
+.shortslogo {
+  height: 32px;
+  display: none; /* hidden initially */
+  border-radius: 6px;
+}
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
+.sup {
+  font-size: 10px;
+}
+.searchbar {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  min-width: 200px;
+}
+.searchbar input {
+  width: 50%;
+  padding: 6px 10px;
+  border-radius: 16px 0 0 16px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+.searchbar button {
+  border: none;
+  padding: 6px 10px;
+  border-radius: 0 16px 16px 0;
+  cursor: pointer;
+  background: #f1f1f1;
+}
+#searchBtn {
+  background: #444242;
+  color: white;
+  transition: 0.2s;
+}
+#searchBtn:hover {
+  background: #444242;
+}
+#micBtn {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  background: #444242;
+  color: #202020;
+  transition: 0.2s;
+}
+#micBtn:hover {
+  background: #ddd;
+}
+#themeToggle {
+  background: #444242;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+}
 
-
-.menu-info { 
-    display: flex; 
-    align-items: center; 
-    gap: 10px; 
+/* ✅ Responsive: move entire searchbar row below */
+@media (max-width: 700px) {
+  .searchbar {
+    order: 2;
+    flex: 1 1 100%;
+    margin-top: 10px;
+    justify-content: center;
+  }
+  .searchbar input {
+    width: 100%;
+  }
 }
-.menu-btn { 
-    cursor: pointer; 
-    font-size: 20px; 
-}
-.logo { 
-    width: 32px; 
-    height: 32px; 
-    background: red; 
-    border-radius: 6px; 
-}
-.title { 
-    font-size: 18px; 
-    font-weight: bold; 
-    color: white; 
-    
-}
-.sup
-{
-    font-size:10px ;
-}
-.searchbar { 
-    flex: 1; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    gap: 5px; 
-}
-.searchbar input { 
-    width: 50%; 
-    padding: 6px 10px; 
-    border-radius: 16px 0 0 16px; 
-    border: none; 
-    outline: none; 
-    font-size: 14px; 
-}
-.searchbar button { 
-    border: none; 
-    padding: 6px 10px; 
-    border-radius: 0 16px 16px 0; 
-    cursor: pointer; 
-    background: #f1f1f1; 
-}
-
-#searchBtn { 
-    background: #ff0000; 
-    color: white; 
-    transition: 0.2s; 
-}
-#searchBtn:hover { 
-    background: #cc0000; 
-}
-
-#micBtn { 
-    border-radius: 50%; 
-    width: 32px; 
-    height: 32px; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    cursor: pointer; 
-    font-size: 16px; 
-    background: #f1f1f1; 
-    color: #202020; 
-    transition: 0.2s; 
-}
-#micBtn:hover { 
-    background: #ddd; 
-}
-
 
 /* ===== Chips ===== */
-.container { padding: 15px; margin-left: 0; }
-.chips { display: flex; flex-wrap: wrap; margin-bottom: 10px; }
-.chip { margin: 5px; padding: 6px 12px; border-radius: 16px; background: #e0e0e0; cursor: pointer; }
-.chip.active { background: red; color: white; }
+.container {
+  padding: 15px;
+  margin-left: 0;
+}
+.chips {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  margin-bottom: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.chips::-webkit-scrollbar {
+  display: none;
+}
+.chip {
+  flex-shrink: 0;
+  padding: 6px 12px;
+  border-radius: 16px;
+  background: #e0e0e0;
+  cursor: pointer;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: background 0.2s ease;
+}
+.chip:hover {
+  background: #d5d5d5;
+}
+.chip.active {
+  background: red;
+  color: white;
+}
 
 /* ===== Video Grid ===== */
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; }
-.card { background: white; border-radius: 10px; overflow: hidden; cursor: pointer; transition: 0.2s; }
-.card:hover { transform: scale(1.02); }
-.card img { width: 100%; display: block; }
-.card .info { padding: 8px; }
-.card .title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
-.card .meta { font-size: 12px; color: gray; }
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  padding: 10px;
+}
+@media (max-width: 1024px) {
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Video Card ===== */
+.video-card {
+  background: var(--card-bg, #181818);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.video-card:hover {
+  transform: scale(1.02);
+}
+.thumbnail {
+  position: relative;
+  width: 100%;
+}
+.thumbnail img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px 10px 0 0;
+}
+.duration {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+.video-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px;
+}
+.channel-logo {
+  flex-shrink: 0;
+}
+.channel-logo img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.meta {
+  flex: 1;
+}
+.meta .title {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  line-height: 1.3;
+  color: white;
+}
+.meta .channel-name,
+.meta .stats {
+  font-size: 12px;
+  color: #aaa;
+}
+.menu {
+  font-size: 18px;
+  color: #aaa;
+  cursor: pointer;
+  align-self: flex-start;
+}
+.menu:hover {
+  color: white;
+}
 
 /* ===== Video Page ===== */
-.video-page { display: flex; gap: 20px; margin-top: 20px; }
-.player-left { flex: 2; display: flex; flex-direction: column; }
-.player-left iframe { width: 100%; height: 500px; border-radius: 10px; }
-.player-right { flex: 1; display: flex; flex-direction: column; gap: 15px; overflow-y: auto; max-height: 500px; }
-.player-right .card { display: flex; gap: 15px; cursor: pointer; height: 140px; transition: 0.2s; }
-.player-right .card img { width: 220px; height: 140px; object-fit: cover; border-radius: 6px; }
-.player-right .card .info { padding: 0; display: flex; flex-direction: column; justify-content: center; }
+.video-page {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+.player-left {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+.player-left iframe {
+  width: 100%;
+  height: 500px;
+  border-radius: 10px;
+}
+.player-right .card {
+  display: flex;
+  gap: 15px;
+  cursor: pointer;
+  height: 140px;
+  transition: 0.2s;
+}
+.player-right .card img {
+  width: 220px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.player-right .card .info {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 /* ===== Channel Info ===== */
-.channel-info { display: flex; justify-content: space-between; align-items: center; margin: 10px 0; }
-.channel-logo { width: 48px; height: 48px; border-radius: 50%; }
-.channel-text h4 { font-size: 16px; margin-bottom: 2px; }
-.channel-text p { font-size: 13px; color: gray; }
-.subscribe-btn { padding: 8px 16px; background: red; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; }
+.channel-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+.channel-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+.channel-text h4 {
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+.channel-text p {
+  font-size: 13px;
+  color: gray;
+}
+.subscribe-btn {
+  padding: 8px 16px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
 
-/* ===== Action Buttons ===== */
-.action-buttons { display: flex; gap: 10px; margin-bottom: 10px; }
-.action-buttons button { padding: 6px 12px; border-radius: 4px; cursor: pointer; background: #e0e0e0; border: none; font-size: 13px; }
+/* ===== Action Buttons =====*/
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.action-buttons button {
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #ffffff;
+  border: none;
+  font-size: 13px;
+}
 
 /* ===== Description ===== */
-.video-meta { margin-top: 10px; font-size: 14px; overflow-y: auto; max-height: 300px; padding-right: 5px; }
-.video-meta p { white-space: pre-wrap; }
-.video-meta .more-btn { color: blue; cursor: pointer; margin-top: 5px; font-size: 13px; }
+.video-meta {
+  margin-top: 10px;
+  font-size: 14px;
+  overflow-y: auto;
+  max-height: 300px;
+  padding-right: 5px;
+}
+.video-meta p {
+  white-space: pre-wrap;
+}
+.video-meta .more-btn {
+  color: blue;
+  cursor: pointer;
+  margin-top: 5px;
+  font-size: 13px;
+}
 
 /* ===== Shorts ===== */
 .shorts-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 10px;
-    overflow-y: auto;
-    height: calc(100vh - 60px - 20px);
-    justify-content: center;
-    align-items: center;
-    scroll-snap-type: y mandatory;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+  overflow-y: auto;
+  height: calc(100vh - 60px - 20px);
+  justify-content: center;
+  align-items: center;
+  scroll-snap-type: y mandatory;
 }
 .short-card {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    width: 320px;
-    max-width: 90%;
-    scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 320px;
+  max-width: 90%;
+  scroll-snap-align: center;
 }
 .short-card iframe,
 .short-card video {
-    width: 100%;
-    height: calc(100vh - 60px - 60px);
-    border-radius: 10px;
+  width: 100%;
+  height: calc(100vh - 60px - 60px);
+  border-radius: 10px;
 }
 .short-title {
-    font-size: 14px;
-    font-weight: 500;
-    text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
 }
 
 /* ===== Footer ===== */
-.foot { text-align: center; 
-    padding: 10px; 
-    font-size: 12px; }
+.foot {
+  text-align: center;
+  padding: 10px;
+  font-size: 12px;
+}
 
 /* ===== Dark Mode ===== */
-body.dark { background: #181818; color: #eee; }
-body.dark .card, body.dark .action-buttons button { background: #333; color: #eee; }
-body.dark .chip { background: #333; color: #eee; }
-body.dark .video-meta span { color: #ff6666; }
-body.dark .shorts-container::-webkit-scrollbar-track { background: #222; }
+body.dark .card,
+body.dark .action-buttons button {
+  background: #333;
+  color: #eee;
+}
+body.dark .chip {
+  background: #333;
+  color: #eee;
+}
+body.dark .video-meta span {
+  color: #ff6666;
+}
+body.dark .shorts-container::-webkit-scrollbar-track {
+  background: #222;
+}
+body.dark .sidebar {
+  background: #202020;
+  color: #eee;
+  border-right: 1px solid #333;
+}
+body.dark .sidebar .menu-item {
+  color: #eee;
+}
+body.dark .sidebar .menu-item.active,
+body.dark .sidebar .menu-item:hover {
+  background: #2a2a2a;
+}
+body.dark .sidebar-toggle {
+  background: #333;
+  color: #eee;
+  border: 1px solid #444;
+}
+body.dark .sidebar-toggle:hover {
+  background: #3a3a3a;
+}
+body.dark .sidebar::-webkit-scrollbar-thumb {
+  background: #555;
+}
+body.dark .sidebar::-webkit-scrollbar-track {
+  background: #222;
+}
 
 /* ===== Responsive ===== */
-@media (max-width: 900px){
-  .video-page { flex-direction: column; }
-  .player-left iframe { height: 250px; }
-  .player-right { max-height: 300px; }
-  .player-right .card { height: 100px; }
-  .player-right .card img { width: 140px; height: 80px; }
-  .short-card iframe, .short-card video { height: calc(100vh - 60px - 60px); width: 90%; }
+@media (max-width: 900px) {
+  .video-page {
+    flex-direction: column;
+  }
+  .player-left iframe {
+    height: 250px;
+  }
+  .player-right {
+    max-height: 300px;
+  }
+  .player-right .card {
+    height: 100px;
+  }
+  .player-right .card img {
+    width: 140px;
+    height: 80px;
+  }
+  .short-card iframe,
+  .short-card video {
+    height: calc(100vh - 60px - 60px);
+    width: 90%;
+  }
 }
-@media (max-width: 700px){
-  .sidebar { width: 180px; }
-  .player-right .card img { width: 120px; height: 70px; }
+@media (max-width: 700px) {
+  .sidebar {
+    width: 180px;
+  }
+  .player-right .card img {
+    width: 120px;
+    height: 70px;
+  }
 }
-@media (max-width: 600px){
-  .searchbar input { width: 60%; }
-  .searchbar button { padding: 5px 8px; }
-  #micBtn { width: 28px; height: 28px; }
+@media (max-width: 600px) {
+  .searchbar input {
+    width: 60%;
+  }
+  .searchbar button {
+    padding: 5px 8px;
+  }
+  #micBtn {
+    width: 28px;
+    height: 28px;
+  }
 }
 
 /* ===== Scrollbar for Shorts & Sidebar ===== */
-.shorts-container::-webkit-scrollbar, 
-.sidebar::-webkit-scrollbar { width: 8px; }
-.shorts-container::-webkit-scrollbar-thumb, 
-.sidebar::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
-.shorts-container::-webkit-scrollbar-track, 
-.sidebar::-webkit-scrollbar-track { background: #f1f1f1; }
-
-/* ========================= */
-/* ===== ADDITIONS ONLY =====*/
-/* ========================= */
-
-/* ADDED: Sidebar dark theme colors (background + text + hover/active) */
-body.dark .sidebar { 
-  background: #202020; 
-  color: #eee; 
-  border-right: 1px solid #333;
+.shorts-container::-webkit-scrollbar,
+.sidebar::-webkit-scrollbar {
+  width: 8px;
 }
-body.dark .sidebar .menu-item { color: #eee; }
-body.dark .sidebar .menu-item.active,
-body.dark .sidebar .menu-item:hover { background: #2a2a2a; }
-
-/* ADDED: Arrow styles in dark + ensure it sits above everything */
-.sidebar-toggle { z-index: 300; }              /* keep always on top */
-body.dark .sidebar-toggle { 
-  background: #333; 
-  color: #eee; 
-  border: 1px solid #444;
+.shorts-container::-webkit-scrollbar-thumb,
+.sidebar::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
 }
-body.dark .sidebar-toggle:hover { background: #3a3a3a; }
+.shorts-container::-webkit-scrollbar-track,
+.sidebar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
 
-/* ADDED: Sidebar scrollbar colors in dark mode */
-body.dark .sidebar::-webkit-scrollbar-thumb { background: #555; }
-body.dark .sidebar::-webkit-scrollbar-track { background: #222; }
-/* ==== CSS for spinner (add in your CSS file) ====*/
+/* ===== Loader / Spinner ===== */
+#loader {
+  display: none;
+  text-align: center;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  z-index: 250;
+}
 .spinner {
-  border: 4px solid rgba(255,255,255,0.3);
-  border-top: 4px solid #f00;
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #3498db;
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  margin: auto;
+  margin: 0 auto;
   animation: spin 1s linear infinite;
 }
-@keyframes spin { 100% { transform: rotate(360deg); } }
- 
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
