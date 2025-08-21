@@ -728,7 +728,7 @@ async function renderSidebar(categoryId, excludeVideoId) {
         // filter by duration >= 120s
         const filtered = detailsData.items.filter(item => {
             const dur = parseDuration(item.contentDetails?.duration);
-            return dur >= 120;
+            return dur >= 1;
         });
 
         if (sidebarVideos.innerHTML.includes("Loading")) sidebarVideos.innerHTML = "";
