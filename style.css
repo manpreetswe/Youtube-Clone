@@ -498,7 +498,7 @@ body.dark .back-btn:hover {
   flex-direction: column;
   gap: 5px;
   width: 320px;
-  max-width: 90%;
+  max-width: 100%;
   scroll-snap-align: center;
 }
 .short-card iframe,
